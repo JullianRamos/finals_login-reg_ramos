@@ -1,0 +1,67 @@
+CREATE TABLE activity_logs (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,  
+    user_id INT NOT NULL,               
+    username VARCHAR(255) NOT NULL,   
+    actions VARCHAR(255) NOT NULL,    
+    action_details TEXT,    
+    action_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
+    action VARCHAR(255) NOT NULL,               
+    details TEXT,                                
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
+    description TEXT                       
+);
+
+
+CREATE TABLE applicants (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    phone VARCHAR(20) NOT NULL,
+    job_title VARCHAR(100) NOT NULL,
+    experience_years INT NOT NULL,
+    resume_submitted ENUM('Yes', 'No') NOT NULL,
+    application_date DATETIME NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_by INT NOT NULL
+);
+
+CREATE TABLE user_accounts (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    date_added DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO applicants (first_name, last_name, email, phone, job_title, experience_years, resume_submitted, application_date) VALUES
+('Juan', 'Dela Cruz', 'juan.delacruz@example.com', '555-1234', 'Head Manager', 10, 'Yes', '2024-11-01 09:00:00'),
+('Maria', 'Reyes', 'maria.reyes@example.com', '555-5678', 'Assistant Manager', 6, 'Yes', '2024-11-02 10:00:00'),
+('Ana', 'Santos', 'ana.santos@example.com', '555-8765', 'Employee', 3, 'No', '2024-11-03 11:00:00'),
+('Jose', 'Torres', 'jose.torres@example.com', '555-4321', 'Senior Developer', 8, 'Yes', '2024-11-04 12:00:00'),
+('Liza', 'Garcia', 'liza.garcia@example.com', '555-9876', 'HR Specialist', 4, 'Yes', '2024-11-05 13:00:00'),
+('Mark', 'Bautista', 'mark.bautista@example.com', '555-6543', 'Sales Associate', 5, 'Yes', '2024-11-06 14:00:00'),
+('Ella', 'De Leon', 'ella.deleon@example.com', '555-3210', 'Customer Service Representative', 7, 'No', '2024-11-07 15:00:00'),
+('Rafael', 'Cruz', 'rafael.cruz@example.com', '555-0987', 'Project Manager', 15, 'Yes', '2024-11-08 16:00:00'),
+('Jessica', 'Villanueva', 'jessica.villanueva@example.com', '555-4567', 'Intern', 1, 'Yes', '2024-11-09 17:00:00'),
+('Carlos', 'Laguio', 'carlos.laguio@example.com', '555-2345', 'Marketing Specialist', 4, 'No', '2024-11-10 18:00:00'),
+('Olivia', 'Morales', 'olivia.morales@example.com', '555-6789', 'Product Manager', 6, 'Yes', '2024-11-11 09:00:00'),
+('Andres', 'Pineda', 'andres.pineda@example.com', '555-9870', 'Software Engineer', 3, 'Yes', '2024-11-12 10:00:00'),
+('Sophia', 'Cordero', 'sophia.cordero@example.com', '555-5432', 'Data Analyst', 4, 'No', '2024-11-13 11:00:00'),
+('Benjamin', 'Sarmiento', 'benjamin.sarmiento@example.com', '555-2109', 'Quality Assurance Tester', 2, 'Yes', '2024-11-14 12:00:00'),
+('Mia', 'Salazar', 'mia.salazar@example.com', '555-8765', 'Office Administrator', 4, 'Yes', '2024-11-15 13:00:00'),
+('Elijah', 'Flores', 'elijah.flores@example.com', '555-4320', 'UX/UI Designer', 5, 'No', '2024-11-16 14:00:00'),
+('Hannah', 'Cruz', 'hannah.cruz@example.com', '555-1235', 'Business Analyst', 3, 'Yes', '2024-11-17 15:00:00'),
+('Lucas', 'Alvarez', 'lucas.alvarez@example.com', '555-5679', 'Financial Analyst', 7, 'Yes', '2024-11-18 16:00:00'),
+('Grace', 'Bacalso', 'grace.bacalso@example.com', '555-8764', 'Operations Manager', 9, 'No', '2024-11-19 17:00:00'),
+('Aiden', 'Lim', 'aiden.lim@example.com', '555-6544', 'Senior Developer', 8, 'Yes', '2024-11-20 18:00:00'),
+('Ella', 'Tan', 'ella.tan@example.com', '555-3211', 'IT Support Specialist', 3, 'No', '2024-11-21 09:00:00'),
+('Noah', 'Santos', 'noah.santos@example.com', '555-0986', 'Marketing Specialist', 5, 'Yes', '2024-11-22 10:00:00'),
+('Abigail', 'Reyes', 'abigail.reyes@example.com', '555-4568', 'Assistant Manager', 3, 'Yes', '2024-11-23 11:00:00'),
+('Ethan', 'Panganiban', 'ethan.panganiban@example.com', '555-7890', 'Project Manager', 6, 'No', '2024-11-24 12:00:00'),
+('Lily', 'Mariano', 'lily.mariano@example.com', '555-2346', 'Intern', 2, 'Yes', '2024-11-25 13:00:00'),
+('Jackson', 'Aguinaldo', 'jackson.aguinaldo@example.com', '555-6780', 'Employee', 4, 'Yes', '2024-11-26 14:00:00'),
+('Charlotte', 'Gonzalez', 'charlotte.gonzalez@example.com', '555-4325', 'Head Manager', 12, 'No', '2024-11-27 15:00:00'),
+('Sebastian', 'Delos Santos', 'sebastian.delossantos@example.com', '555-2108', 'Senior Developer', 7, 'Yes', '2024-11-28 16:00:00'),
+('Victoria', 'Calixto', 'victoria.calixto@example.com', '555-9871', 'Sales Associate', 6, 'Yes', '2024-11-29 17:00:00'),
+('Alexander', 'Javier', 'alexander.javier@example.com', '555-5430', 'Customer Service Representative', 1, 'No', '2024-11-30 18:00:00');
